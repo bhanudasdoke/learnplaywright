@@ -1,5 +1,5 @@
 import {test, expect} from '@playwright/test'
-test.describe("Smoke Test1",()=>{
+test.describe.parallel("Smoke Test1",()=>{
 
 test.beforeEach(async({page})=>{
     await page.goto("https://bookcart.azurewebsites.net/");
@@ -49,6 +49,7 @@ test("2nd testcase", async({page})=>{
     await page.locator('mat-card-actions').getByRole('button', { name: 'Login' }).click();
 
 })
+
 test.afterEach(async({page})=>{
     await page.close();
 
